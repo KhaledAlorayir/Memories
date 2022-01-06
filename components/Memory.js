@@ -32,7 +32,7 @@ const Memory = ({ item }) => {
 		<TouchableOpacity onLongPress={DeleteHandler}>
 			<Div
 				w="100%"
-				bg="pink400"
+				bg="main"
 				mb={20}
 				py={10}
 				px={20}
@@ -54,10 +54,10 @@ const Memory = ({ item }) => {
 					</Div>
 				</Div>
 				<Div>
-					<Text mb={5} fontWeight="bold" color="gray100" fontSize="xl">
+					<Text mb={5} fontWeight="bold" color="text1" fontSize="xl">
 						{item.title}
 					</Text>
-					<Text color="gray200" fontSize="sm">
+					<Text color="text2" fontSize="sm">
 						{hood + " " + city + ", " + country}
 					</Text>
 				</Div>

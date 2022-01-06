@@ -20,19 +20,19 @@ const ErrorMessage = () => {
 			justifyContent="space-between"
 			py={10}
 			px={20}
-			bg="red400"
+			bg="err"
 		>
-			<Text fontSize={14} color="gray200" fontWeight="700">
+			<Text fontSize={14} color="text2" fontWeight="700">
 				{mess}
 			</Text>
 			<Button
 				onPress={CloseMessHandler}
-				bg="gray200"
+				bg="text2"
 				rounded="circle"
 				h={40}
 				w={40}
 			>
-				<Icon name="close" color="red400" fontSize={16} />
+				<Icon name="close" color="err" fontSize={16} />
 			</Button>
 		</Div>
 	);

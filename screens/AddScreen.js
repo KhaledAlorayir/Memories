@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Div, Text, Image, ScrollDiv } from "react-native-magnus";
+import React, { useState, useContext } from "react";
+import { Div, Text, Image, ScrollDiv, ThemeContext } from "react-native-magnus";
 import TextInput from "../components/TextInput";
 import TakeImage from "../components/TakeImage";
 import TakeLocation from "../components/TakeLocation";
@@ -38,13 +38,16 @@ const AddScreen = ({ navigation }) => {
 	if (isLoading) return <Loading />;
 	//
 
+	//Theme state to get emoji
+	const { theme, setTheme } = useContext(ThemeContext);
+
 	return (
 		<>
 			<ErrorMessage />
-			<ScrollDiv px={16} bg="pink200" contentContainerStyle={{ flex: 1 }}>
+			<ScrollDiv px={16} bg="bg2" contentContainerStyle={{ flex: 1 }}>
 				<Div alignItems="center" mt={32}>
-					<Text mb={32} fontSize="2xl" fontWeight="bold" color="pink600">
-						Add a New Memory 😻
+					<Text mb={32} fontSize="2xl" fontWeight="bold" color="sec">
+						Add a New Memory {theme.name === "light" ? "😻" : "🐧"}
 					</Text>
 
 					<Div
@@ -69,7 +72,7 @@ const AddScreen = ({ navigation }) => {
 						mt={30}
 						alignItems="center"
 						borderWidth={2}
-						borderColor="pink400"
+						borderColor="main"
 						overflow="hidden"
 						rounded={10}
 					>

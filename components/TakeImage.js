@@ -30,11 +30,9 @@ const TakeImage = ({ setFormData }) => {
 			rounded="circle"
 			px="xl"
 			py="lg"
-			bg="white"
+			bg="extra"
 			borderWidth={1}
-			borderColor="pink400"
-			color="pink400"
-			underlayColor="red100"
+			borderColor="main"
 			fontWeight="700"
 			flex={0.1}
 		>

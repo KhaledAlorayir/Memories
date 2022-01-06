@@ -7,12 +7,14 @@ import { ReadMemories } from "../actions/Memories";
 import Memory from "../components/Memory";
 import ErrorMessage from "../components/ErrorMessage";
 import Loading from "../components/Loading";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 
 const HomeScreen = ({ navigation }) => {
 	navigation.setOptions({
 		headerRight: () => (
 			<HeaderButton OnPress={() => navigation.navigate("add")} icon="plus" />
 		),
+		headerLeft: () => <ThemeSwitcher />,
 	});
 
 	const dispatch = useDispatch();
@@ -43,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
 	return (
 		<>
 			<ErrorMessage />
-			<Div flex={1} bg="pink100" p={10}>
+			<Div flex={1} bg="bg1" p={10}>
 				<FlatList
 					data={posts}
 					keyExtractor={(item) => item.img}

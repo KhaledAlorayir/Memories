@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "react-native-magnus";
 import Nav from "./navigation/MainStackNav";
+import Theme from "./constants/Theme";
 
 //redux
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
@@ -28,7 +29,7 @@ const store = createStore(reducers, composeEnchancer(applyMiddleware(thunk)));
 export default function App() {
 	return (
 		<Provider store={store}>
-			<ThemeProvider>
+			<ThemeProvider theme={Theme.light}>
 				<Nav />
 				<StatusBar style="auto" />
 			</ThemeProvider>

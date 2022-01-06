@@ -6,12 +6,12 @@ const TextInput = ({ value, onChangeText }) => {
 		<Input
 			placeholder="Title"
 			p={10}
-			focusBorderColor="pink600"
+			focusBorderColor="sec"
 			flex={0.8}
 			value={value}
 			onChangeText={onChangeText}
-			borderColor="pink400"
-			color="pink600"
+			borderColor="main"
+			color="black"
 		/>
 	);
 };
