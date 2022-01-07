@@ -6,6 +6,7 @@ import TakeLocation from "../components/TakeLocation";
 import HeaderButton from "../components/HeaderButton";
 import ErrorMessage from "../components/ErrorMessage";
 import Loading from "../components/Loading";
+import ImageContainer from "../components/ImageContainer";
 import { Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { SubmitMemory } from "../actions/Memories";
@@ -67,23 +68,7 @@ const AddScreen = ({ navigation }) => {
 					<TakeLocation setFormData={setFormData} />
 				</Div>
 				{FormData.img && (
-					<Div
-						h="50%"
-						mt={30}
-						alignItems="center"
-						borderWidth={2}
-						borderColor="main"
-						overflow="hidden"
-						rounded={10}
-					>
-						<Image
-							h="100%"
-							w="100%"
-							source={{
-								uri: FormData.img,
-							}}
-						/>
-					</Div>
+					<ImageContainer img={FormData.img} height="60%" mt={30} />
 				)}
 			</ScrollDiv>
 		</>

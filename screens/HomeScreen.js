@@ -49,7 +49,9 @@ const HomeScreen = ({ navigation }) => {
 				<FlatList
 					data={posts}
 					keyExtractor={(item) => item.img}
-					renderItem={({ item }) => <Memory item={item} />}
+					renderItem={({ item }) => (
+						<Memory item={item} navigation={navigation} />
+					)}
 					onRefresh={Refresh_Handler}
 					refreshing={isRefreshing}
 				/>

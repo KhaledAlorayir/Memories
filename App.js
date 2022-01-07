@@ -37,9 +37,4 @@ export default function App() {
 	);
 }
 
-/*
 
-- details page
-- night mood ??
-
-*/

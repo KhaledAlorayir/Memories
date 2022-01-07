@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { DeleteMemory } from "../actions/Memories";
 import { Alert } from "react-native";
 
-const Memory = ({ item }) => {
+const Memory = ({ item, navigation }) => {
 	const dispatch = useDispatch();
 
 	const DeleteHandler = () => {
@@ -25,11 +25,15 @@ const Memory = ({ item }) => {
 		);
 	};
 
+	const NavigateHandler = () => {
+		navigation.navigate("memory", { item });
+	};
+
 	const Addarr = item.address.split("&");
 	const [hood, city, country] = Addarr;
 
 	return (
-		<TouchableOpacity onLongPress={DeleteHandler}>
+		<TouchableOpacity onLongPress={DeleteHandler} onPress={NavigateHandler}>
 			<Div
 				w="100%"
 				bg="main"
