@@ -33,7 +33,7 @@ const Memory = ({ item, navigation }) => {
 	const [hood, city, country] = Addarr;
 
 	return (
-		<TouchableOpacity onLongPress={DeleteHandler} onPress={NavigateHandler}>
+		<TouchableOpacity onPress={NavigateHandler} onLongPress={DeleteHandler}>
 			<Div
 				w="100%"
 				bg="main"

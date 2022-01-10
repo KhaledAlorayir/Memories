@@ -6,7 +6,6 @@ import { GOOGLE_API } from "@env";
 export const SubmitMemory = (Formdata) => async (dispatch) => {
 	try {
 		dispatch({ type: "START_LOADING" });
-
 		//Moving the file from cache to app dirctory
 		const fileName = Formdata.img.split("/").pop();
 		const newPath = FileSystem.documentDirectory + fileName;
@@ -16,10 +15,9 @@ export const SubmitMemory = (Formdata) => async (dispatch) => {
 			to: newPath,
 		});
 		//
-
 		//Google API to get address
 		const res = await fetch(
-			`https://maps.googleapis.com/maps/api/geocode/json?latlng=${Formdata.loc.lat},${Formdata.loc.lon}&key=${GOOGLE_API}`
+			`https://maps.googleapis.com/maps/api/geocode/json?latlng=${Formdata.lat},${Formdata.lon}&key=${GOOGLE_API}`
 		);
 		const data = await res.json();
 
@@ -33,8 +31,8 @@ export const SubmitMemory = (Formdata) => async (dispatch) => {
 		const post = new Post(
 			Formdata.title,
 			newPath,
-			Formdata.loc.lat,
-			Formdata.loc.lon,
+			Formdata.lat,
+			Formdata.lon,
 			address
 		);
 

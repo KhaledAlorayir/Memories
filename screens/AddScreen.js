@@ -15,7 +15,8 @@ const AddScreen = ({ navigation }) => {
 	const [FormData, setFormData] = useState({
 		title: "",
 		img: null,
-		loc: null,
+		lat: 0,
+		lon: 0,
 	});
 
 	const dispatch = useDispatch();
@@ -25,6 +26,11 @@ const AddScreen = ({ navigation }) => {
 			return Alert.alert("Pleses Enter a Title!");
 
 		if (!FormData.img) return Alert.alert("Pleses Take An Image!");
+
+		if (FormData.lat === 0 || FormData.lon === 0)
+			return Alert.alert(
+				"Pleses Allow Memories to see your location or wait till it gets loaded :)"
+			);
 
 		await dispatch(SubmitMemory(FormData));
 		navigation.navigate("home");
@@ -45,6 +51,7 @@ const AddScreen = ({ navigation }) => {
 	return (
 		<>
 			<ErrorMessage />
+			<TakeLocation setFormData={setFormData} />
 			<ScrollDiv px={16} bg="bg2" contentContainerStyle={{ flex: 1 }}>
 				<Div alignItems="center" mt={32}>
 					<Text mb={32} fontSize="2xl" fontWeight="bold" color="sec">
@@ -65,7 +72,6 @@ const AddScreen = ({ navigation }) => {
 						/>
 						<TakeImage setFormData={setFormData} />
 					</Div>
-					<TakeLocation setFormData={setFormData} />
 				</Div>
 				{FormData.img && (
 					<ImageContainer img={FormData.img} height="60%" mt={30} />

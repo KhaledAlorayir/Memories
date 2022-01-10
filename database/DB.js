@@ -31,8 +31,8 @@ export const Create = (post) => {
 					post.title,
 					post.img,
 					post.address,
-					post.loc.lat,
-					post.loc.lon,
+					post.lat,
+					post.lon,
 					post.timestamp,
 				],
 				(_, result) => {

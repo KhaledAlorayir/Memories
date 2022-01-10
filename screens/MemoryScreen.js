@@ -10,7 +10,6 @@ import { DeleteMemory } from "../actions/Memories";
 import { Alert, TouchableOpacity } from "react-native";
 import Map from "../components/Map";
 
-//click on image big
 const MemoryScreen = ({ navigation, route }) => {
 	const dispatch = useDispatch();
 	dayjs.extend(relativeTime);
@@ -45,7 +44,6 @@ const MemoryScreen = ({ navigation, route }) => {
 	const NavigateHandler = () => {
 		navigation.navigate("img", { img: item.img });
 	};
-
 	return (
 		<>
 			<ErrorMessage />
@@ -64,6 +62,7 @@ const MemoryScreen = ({ navigation, route }) => {
 						{fromNow}
 					</Text>
 				</Div>
+				<Map lat={item.lat} lon={item.lon} />
 			</ScrollDiv>
 		</>
 	);
